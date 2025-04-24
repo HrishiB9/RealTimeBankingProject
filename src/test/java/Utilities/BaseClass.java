@@ -1,0 +1,95 @@
+package Utilities;
+
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseClass
+{
+	
+	public static String browserName;
+	public static WebDriver driver;
+	public static String getUrl;
+	
+	
+	public static WebDriver initializeDriver()
+	{ 
+			try 
+			 {
+				browserName= FetchBrowserNameFromProperties.readBrowserName().getProperty("Browser");
+				getUrl= FetchBrowserNameFromProperties.readBrowserName().getProperty("url");
+								
+			 } 
+			catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		
+		if(browserName.equalsIgnoreCase("Chrome"))
+		{
+			try {
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
+				driver.get(getUrl);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			driver.manage().window().maximize();
+		}
+		
+		if(browserName.equalsIgnoreCase("firefox"))
+		{
+			try {
+				driver = new FirefoxDriver();
+				driver.get(FetchURLFromExcel.getURL());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			driver.manage().window().maximize();
+		}
+		
+		if(browserName.equalsIgnoreCase("edge"))
+		{
+			try {
+				driver = new EdgeDriver();
+				driver.get(FetchURLFromExcel.getURL());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			driver.manage().window().maximize();
+		}
+		
+		return driver;
+		
+	}
+	
+	public static void addImplicitWait()
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	
+	public static void scrollDown()
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,500)"," " );
+	}
+	
+	public static void getTitle()
+	{
+		String title = driver.getTitle();
+		System.out.println("Page Title is: "+title);
+	}
+	
+}
