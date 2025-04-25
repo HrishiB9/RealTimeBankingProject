@@ -53,6 +53,7 @@ public class SignUpPage extends BaseClass
 	@FindBy(how=How.XPATH, using="//form[@id='form908359660']/div")
 	WebElement success;
 	
+	
 	public void registration()
 	{
 		registrationLink.click();

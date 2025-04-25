@@ -2,12 +2,17 @@ package Utilities;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -91,5 +96,32 @@ public class BaseClass
 		String title = driver.getTitle();
 		System.out.println("Page Title is: "+title);
 	}
+	
+	public static void addExplicitWait(By locator)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public static void getWindowHandle()
+	{
+		Set<String> alltabs=driver.getWindowHandles();
+		Iterator<String> pcid=alltabs.iterator();
+		@SuppressWarnings("unused")
+		String parentTab=pcid.next();
+		String childTab=pcid.next();
+		driver.switchTo().window(childTab);
+	}
+	
+	public static void hardCodedWait()
+	{
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 }

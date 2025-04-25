@@ -32,6 +32,9 @@ public class LoginPage
 	@FindBy(xpath="//form[@id='form908400415']/div")
 	WebElement successMessage;
 	
+	 @FindBy(xpath="(//ul[@role='list'])[2]/li/a")
+	 WebElement errorMessage;
+	
 	
 	public void logLink()
 	{
@@ -56,6 +59,11 @@ public class LoginPage
 	public void msg()
 	{
 		successMessage.getText();
+	}
+	
+	public String errMsg()
+	{
+		return errorMessage.getText();
 	}
 	
 }

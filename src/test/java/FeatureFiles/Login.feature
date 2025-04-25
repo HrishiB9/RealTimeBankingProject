@@ -1,9 +1,11 @@
 Feature: Validate the login functionalty of application
 
-  Scenario Outline: Validate the positive scenario of login functionality
+Background: 
     Given User launch the application
-    When Click on the Login Button
-    And User enters the login Username as "<Username>"
+    And Click on the Login Button
+
+  Scenario Outline: Validate the valid credentials of login functionality
+    When User enters the login Username as "<Username>"
     And User enters the login  Password as "<Password>"
     And Click on the login buton
     Then Validate that user is getting success message after login successfully
@@ -12,3 +14,19 @@ Feature: Validate the login functionalty of application
     Examples: 
       | Username | Password |
       | Ram      |    12345 |
+      |Sham	     | 98765    |
+
+      
+      
+   Scenario Outline: Validate the invalid credentials of login functionality
+    When User enters the login Username as "<Username>"
+    And User enters the login  Password as "<Password>"
+    And Click on the login buton
+    Then Validate that user is getting error message
+   
+
+    Examples: 
+      | Username | Password |
+      |          |          |
+     
+  

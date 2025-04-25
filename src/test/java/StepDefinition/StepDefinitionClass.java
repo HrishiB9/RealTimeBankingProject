@@ -1,24 +1,37 @@
 package StepDefinition;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import PageObjects.AccountDetailsPage;
 import PageObjects.ContactsUsPage;
 import PageObjects.ForgetPage;
 import PageObjects.LoginPage;
 import PageObjects.SignUpPage;
 import Utilities.BaseClass;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
 public class StepDefinitionClass extends BaseClass
 {
+	
+	/*@Before
+	public void setup()
+	{
+		
+	}*/
+	
 	WebDriver driver = BaseClass.initializeDriver();
 	SignUpPage page = new SignUpPage(driver);
 	LoginPage login = new LoginPage(driver);
 	ForgetPage forgot = new ForgetPage(driver);
 	ContactsUsPage contact = new ContactsUsPage(driver);
+	AccountDetailsPage account = new AccountDetailsPage(driver);
 	
 	 
 	@Given("User launch the application")
@@ -109,19 +122,19 @@ public class StepDefinitionClass extends BaseClass
 	
 	
 		
-	@When("Click on the Login Button")
+	@And("Click on the Login Button")
 	public void click_on_the_login_button()
 	{
 	   login.logLink();
 	}
 	
-	@And("User enters the login Username as {string}")
+	@When("User enters the login Username as {string}")
 	public void user_enters_the_login_username_as(String Username)
 	{
 	   login.userName(Username);
 	}
 	
-	@When("User enters the login  Password as {string}")
+	@And("User enters the login  Password as {string}")
 	public void user_enters_the_login_password_as(String password) {
 	   login.passwd(password);
 	}
@@ -141,6 +154,14 @@ public class StepDefinitionClass extends BaseClass
 	public void verify_that_the_title_of_the_page() 
 	{
 	  getTitle();
+	}
+	
+	@Then("Validate that user is getting error message")
+	public void validate_that_user_is_getting_error_message() 
+	{
+	   String error = login.errMsg();
+	   Assert.assertEquals(error, "None of the fields are filled in");
+	   
 	}
 
 
@@ -233,4 +254,99 @@ public class StepDefinitionClass extends BaseClass
 	   contact.getMsg();
 	}
 
+
+	//********* Account details page functionality*******
+	
+	@Given("User clicks on the Account details link")
+	public void user_clicks_on_the_account_details_link() 
+	{
+		
+		account.accountpage();
+		getWindowHandle();
+		
+	}
+
+	@Given("User selects the name from dropdown")
+	public void user_selects_the_name_from_dropdown()
+	{			
+	    try {
+			account.username();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Given("User clicks on the login button")
+	public void user_clicks_on_the_login_button()
+	{
+	    account.login();
+	}
+	
+	@When("User verifies the welcome label")
+	public void user_verifies_the_welcome_label()
+	{
+	    String msg = account.wel();
+	   // Assert.assertEquals(msg, "Welcome");
+	   
+	}
+
+	@When("User selects the Account number")
+	public void user_selects_the_account_number() 
+	{
+	    account.selectAccount();
+	}
+
+	@When("User clicks on the deposit option")
+	public void user_clicks_on_the_deposit_option() 
+	{
+		account.depositOption();
+	}
+	
+	@When("User enters the deposit amount in the amount field {string}")
+	public void user_enters_the_deposit_amount_in_the_amount_field(String depositAmount) {
+		
+		System.out.println(depositAmount);
+	    try {
+			account.dAmount(depositAmount);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    System.out.println(depositAmount);
+	    
+	}
+
+	@When("User clicks on the Deposit button")
+	public void user_clicks_on_the_deposit_button() {
+	    account.depositButton();
+	}
+	
+	@When("Validate the correct balance")
+	public void validate_the_correct_balance() {
+		String total = account.totalAmt();
+	    System.out.println("Total Account balance:" +total);
+	}
+
+	@When("User clicks on the Withdrawl option")
+	public void user_clicks_on_the_withdrawl_option() {
+	    account.withdrawlOpt();
+	}
+
+	@When("User enters the withdrawl amount in the amount field {string}")
+	public void user_enters_the_withdrawl_amount_in_the_amount_field(String withdrawlAmount) {
+	   account.withdrawlAmt(withdrawlAmount);
+	   
+	}
+
+	@When("User clicks on the Withdrawl button")
+	public void user_clicks_on_the_withdrawl_button() {
+	    account.withdrawBtn();
+	}	
+	
+	@After
+	public void tearDown()
+	{
+		driver.quit();
+	}
 }
