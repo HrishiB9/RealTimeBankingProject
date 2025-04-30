@@ -26,63 +26,48 @@ public class BaseClass
 	
 	public static WebDriver initializeDriver()
 	{ 
-			try 
-			 {
-				browserName= FetchBrowserNameFromProperties.readBrowserName().getProperty("Browser");
-				getUrl= FetchBrowserNameFromProperties.readBrowserName().getProperty("url");
-								
-			 } 
-			catch (IOException e)
+		try 
+		{
+            browserName = FetchBrowserNameFromProperties.readBrowserName().getProperty("Browser");
+            getUrl = FetchBrowserNameFromProperties.readBrowserName().getProperty("url");
+        } 
+		catch (IOException e) 
+		{
+            e.printStackTrace();
+            throw new RuntimeException("Failed to load browser configuration");
+        }
+		
+			switch (browserName.toLowerCase()) 
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-		
-		if(browserName.equalsIgnoreCase("Chrome"))
-		{
-			try {
-				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
-				driver.get(getUrl);
-				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			driver.manage().window().maximize();
-		}
-		
-		if(browserName.equalsIgnoreCase("firefox"))
-		{
-			try {
-				driver = new FirefoxDriver();
-				driver.get(FetchURLFromExcel.getURL());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			driver.manage().window().maximize();
-		}
-		
-		if(browserName.equalsIgnoreCase("edge"))
-		{
-			try {
-				driver = new EdgeDriver();
-				driver.get(FetchURLFromExcel.getURL());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			driver.manage().window().maximize();
-		}
-		
-		return driver;
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+
+            default:
+                throw new IllegalArgumentException("Browser not supported: " + browserName);
+            }
+			
+			 driver.manage().window().maximize();
+		        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		        driver.get(getUrl);
+		        return driver;
 		
 	}
 	
-	public static void addImplicitWait()
+	public static void addImplicitWait(long seconds)
 	{
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}
 	
 	public static void scrollDown()
@@ -91,36 +76,49 @@ public class BaseClass
 		js.executeScript("window.scrollBy(0,500)"," " );
 	}
 	
-	public static void getTitle()
+	public static String getTitle()
 	{
 		String title = driver.getTitle();
 		System.out.println("Page Title is: "+title);
+		return title;
 	}
 	
-	public static void addExplicitWait(By locator)
+	public static void addExplicitWait(By locator, long seconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
 	public static void getWindowHandle()
 	{
-		Set<String> alltabs=driver.getWindowHandles();
-		Iterator<String> pcid=alltabs.iterator();
-		@SuppressWarnings("unused")
-		String parentTab=pcid.next();
-		String childTab=pcid.next();
-		driver.switchTo().window(childTab);
+		Set<String> windows=driver.getWindowHandles();
+		Iterator<String> iterator=windows.iterator();
+		
+		if(windows.size()>1)
+		{
+		String parentWindow=iterator.next();
+		String childWindow=iterator.next();
+		driver.switchTo().window(childWindow);
+		}
+		else
+		{
+			throw new IllegalStateException("No child window found to switch");
+		}
+		
+	
 	}
 	
-	public static void hardCodedWait()
+	public static void hardCodedWait(long milliseconds)
 	{
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 try 
+		 {
+	            Thread.sleep(milliseconds);
+	        }
+		 catch (InterruptedException e) 
+		 {
+	            Thread.currentThread().interrupt();
+	            System.err.println("Thread interrupted during wait: " + e.getMessage());
+		 }
 	}
 	
 	

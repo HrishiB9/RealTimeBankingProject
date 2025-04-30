@@ -76,6 +76,7 @@ public class SignUpPage extends BaseClass
 	
 	public void dateOfBirth(String DateOfBirth)
 	{
+		
 		dob.sendKeys(DateOfBirth);
 	}
 	

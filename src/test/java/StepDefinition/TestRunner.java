@@ -9,12 +9,12 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 (
 	features="src/test/java/FeatureFiles/",
-	glue="StepDefinition",
+	glue= {"StepDefinition", "Hooks"},
 	dryRun=false,
 	//tags="@test1",
 	monochrome=false,
 	plugin= {"pretty", "html:target/cucumber.html",
-			"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+			//"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 	}
 		
 )

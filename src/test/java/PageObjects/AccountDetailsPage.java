@@ -68,9 +68,9 @@ public class AccountDetailsPage extends BaseClass
 	 
 	 public void username() throws InterruptedException
 	 {		 
-		 hardCodedWait();
+		 hardCodedWait(7000);
 		 accDropDown.click();
-		 Thread.sleep(6000);
+		 hardCodedWait(3000);
 			accOne.click();		
 	 }
 	
@@ -96,7 +96,7 @@ public class AccountDetailsPage extends BaseClass
 	 }
 	 public void dAmount(String amnt) throws InterruptedException
 	 {
-		 Thread.sleep(6000);
+		 
 		 depositAmount.sendKeys(amnt);
 	 }
 	 
@@ -117,9 +117,9 @@ public class AccountDetailsPage extends BaseClass
 	 
 	 public void withdrawlAmt(String amt)
 	 {
-		 withdrawlAmount.sendKeys(amt);
+		 withdrawlAmount.sendKeys(amt); 
 	 }
-	 
+	  
 	 public void withdrawBtn()
 	 {
 		 withdrawBtn.click();

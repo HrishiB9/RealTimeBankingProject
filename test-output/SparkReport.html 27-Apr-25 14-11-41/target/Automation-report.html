@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Apr 26, 2025 12:22:47 am</span></a>
+<a href="#"><span class="badge badge-primary">Apr 27, 2025 02:11:40 pm</span></a>
 </li>
 </ul>
 </div>
@@ -45,11 +45,6 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
-</a>
-</li>
-<li class="nav-item dropdown" onclick="toggleView('exception-view')">
-<a id="nav-exception" class="dropdown-toggle" href="#">
-<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -72,7 +67,6 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -80,25 +74,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="pass" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Validate the Account details functionality</p>
             <p class="text-sm">
-              <span>12:22:51 am</span> / <span>00:00:52:814</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>2:11:44 pm</span> / <span>00:00:59:771</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Validate the Account details functionality</h5>
-<span class='badge badge-success'>04.26.2025 12:22:51 am</span>
-<span class='badge badge-danger'>04.26.2025 12:23:43 am</span>
-<span class='badge badge-default'>00:00:52:814</span>
+<h5 class="test-status text-pass">Validate the Account details functionality</h5>
+<span class='badge badge-success'>04.27.2025 2:11:44 pm</span>
+<span class='badge badge-danger'>04.27.2025 2:12:44 pm</span>
+<span class='badge badge-default'>00:00:59:771</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -171,17 +165,17 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="14"><span class="badge log fail-bg mr-2">Fail</span>Validate the withdrawl functionality of account details</div>
+        <div class="node" id="15"><span class="badge log pass-bg mr-2">Pass</span>Validate the withdrawl functionality of account details</div>
       </div>
     </div>
-        <div class="scenario_outline ">
+        <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="15"><span class="badge log fail-bg mr-2">Fail</span>Validate the withdrawl functionality of account details</div>
+                  <div class="node" id="16"><span class="badge log pass-bg mr-2">Pass</span>Validate the withdrawl functionality of account details</div>
                 </div>
               </div>
-              <div class="card-body mt-3 ">
+              <div class="card-body mt-3 collapse">
                   <div class="step pass-bg">
                     <span>Given User launch the application</span>
       <div>
@@ -202,67 +196,34 @@
       <div>
       </div>
                   </div>
-                  <div class="step fail-bg">
+                  <div class="step pass-bg">
                     <span>When User verifies the welcome label</span>
       <div>
-        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='comp-m8sxilxq']/h6/span"}
-  (Session info: chrome=135.0.7049.115)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.30.0', revision: '509c7f17cc*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f30c0a5d55b03e63598876194eb662c2, findElement {using=xpath, value=//div[@id='comp-m8sxilxq']/h6/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\LENOVO\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62721}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62721/devtoo..., se:cdpVersion: 135.0.7049.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f30c0a5d55b03e63598876194eb662c2
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy22.getText(Unknown Source)
-	at PageObjects.AccountDetailsPage.wel(AccountDetailsPage.java:84)
-	at StepDefinition.StepDefinitionClass.user_verifies_the_welcome_label(StepDefinitionClass.java:289)
-	at ✽.User verifies the welcome label(file:///G:/Automation%20Testing/GroTechMind/RealTime_BankingPoject/src/test/java/FeatureFiles/AccountDetails.feature:18)
-</textarea>
-      
       </div>
                   </div>
-                  <div class="step skip-bg">
+                  <div class="step pass-bg">
                     <span>And User selects the Account number</span>
-      <div>Step skipped
+      <div>
       </div>
                   </div>
-                  <div class="step skip-bg">
+                  <div class="step pass-bg">
                     <span>And User clicks on the Withdrawl option</span>
-      <div>Step skipped
+      <div>
       </div>
                   </div>
-                  <div class="step skip-bg">
+                  <div class="step pass-bg">
                     <span>And User enters the withdrawl amount in the amount field "2000"</span>
-      <div>Step skipped
+      <div>
       </div>
                   </div>
-                  <div class="step skip-bg">
+                  <div class="step pass-bg">
                     <span>And User clicks on the Withdrawl button</span>
-      <div>Step skipped
+      <div>
       </div>
                   </div>
-                  <div class="step skip-bg">
+                  <div class="step pass-bg">
                     <span>And Validate the correct balance</span>
-      <div>Step skipped
+      <div>
       </div>
                   </div>
               </div>
@@ -272,14 +233,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="27"
+        <li class="test-item"  status="pass" test-id="29"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Validate the functionality of Contact Us</p>
             <p class="text-sm">
-              <span>12:23:44 am</span> / <span>00:00:11:113</span>
+              <span>2:12:44 pm</span> / <span>00:00:12:140</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -288,10 +249,10 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Validate the functionality of Contact Us</h5>
-<span class='badge badge-success'>04.26.2025 12:23:44 am</span>
-<span class='badge badge-danger'>04.26.2025 12:23:55 am</span>
-<span class='badge badge-default'>00:00:11:113</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=27</span>
+<span class='badge badge-success'>04.27.2025 2:12:44 pm</span>
+<span class='badge badge-danger'>04.27.2025 2:12:56 pm</span>
+<span class='badge badge-default'>00:00:12:140</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=29</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -302,14 +263,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="28"><span class="badge log pass-bg mr-2">Pass</span>Validate the contact us form with positive data</div>
+        <div class="node" id="30"><span class="badge log pass-bg mr-2">Pass</span>Validate the contact us form with positive data</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="29"><span class="badge log pass-bg mr-2">Pass</span>Validate the contact us form with positive data</div>
+                  <div class="node" id="31"><span class="badge log pass-bg mr-2">Pass</span>Validate the contact us form with positive data</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -370,14 +331,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="41"
+        <li class="test-item"  status="pass" test-id="44"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Validate the Forgot password functionality</p>
             <p class="text-sm">
-              <span>12:23:55 am</span> / <span>00:00:10:021</span>
+              <span>2:12:56 pm</span> / <span>00:00:12:634</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -386,10 +347,10 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Validate the Forgot password functionality</h5>
-<span class='badge badge-success'>04.26.2025 12:23:55 am</span>
-<span class='badge badge-danger'>04.26.2025 12:24:05 am</span>
-<span class='badge badge-default'>00:00:10:021</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=41</span>
+<span class='badge badge-success'>04.27.2025 2:12:56 pm</span>
+<span class='badge badge-danger'>04.27.2025 2:13:09 pm</span>
+<span class='badge badge-default'>00:00:12:634</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=44</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -400,14 +361,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="42"><span class="badge log pass-bg mr-2">Pass</span>Verify the forgot password with valid email id</div>
+        <div class="node" id="45"><span class="badge log pass-bg mr-2">Pass</span>Verify the forgot password with valid email id</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="43"><span class="badge log pass-bg mr-2">Pass</span>Verify the forgot password with valid email id</div>
+                  <div class="node" id="46"><span class="badge log pass-bg mr-2">Pass</span>Verify the forgot password with valid email id</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -453,14 +414,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="52"
+        <li class="test-item"  status="pass" test-id="56"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Validate the login functionalty of application</p>
             <p class="text-sm">
-              <span>12:24:05 am</span> / <span>00:00:28:013</span>
+              <span>2:13:09 pm</span> / <span>00:00:26:503</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -469,10 +430,10 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Validate the login functionalty of application</h5>
-<span class='badge badge-success'>04.26.2025 12:24:05 am</span>
-<span class='badge badge-danger'>04.26.2025 12:24:33 am</span>
-<span class='badge badge-default'>00:00:28:013</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=52</span>
+<span class='badge badge-success'>04.27.2025 2:13:09 pm</span>
+<span class='badge badge-danger'>04.27.2025 2:13:36 pm</span>
+<span class='badge badge-default'>00:00:26:503</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=56</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -483,14 +444,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="53"><span class="badge log pass-bg mr-2">Pass</span>Validate the valid credentials of login functionality</div>
+        <div class="node" id="57"><span class="badge log pass-bg mr-2">Pass</span>Validate the valid credentials of login functionality</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="54"><span class="badge log pass-bg mr-2">Pass</span>Validate the valid credentials of login functionality</div>
+                  <div class="node" id="58"><span class="badge log pass-bg mr-2">Pass</span>Validate the valid credentials of login functionality</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -534,7 +495,7 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="63"><span class="badge log pass-bg mr-2">Pass</span>Validate the valid credentials of login functionality</div>
+                  <div class="node" id="68"><span class="badge log pass-bg mr-2">Pass</span>Validate the valid credentials of login functionality</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -580,14 +541,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="72"><span class="badge log pass-bg mr-2">Pass</span>Validate the invalid credentials of login functionality</div>
+        <div class="node" id="78"><span class="badge log pass-bg mr-2">Pass</span>Validate the invalid credentials of login functionality</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="73"><span class="badge log pass-bg mr-2">Pass</span>Validate the invalid credentials of login functionality</div>
+                  <div class="node" id="79"><span class="badge log pass-bg mr-2">Pass</span>Validate the invalid credentials of login functionality</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -628,14 +589,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="81"
+        <li class="test-item"  status="pass" test-id="88"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Validate the sign up functionatlity of application</p>
             <p class="text-sm">
-              <span>12:24:33 am</span> / <span>00:00:10:972</span>
+              <span>2:13:36 pm</span> / <span>00:00:10:872</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -644,10 +605,10 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Validate the sign up functionatlity of application</h5>
-<span class='badge badge-success'>04.26.2025 12:24:33 am</span>
-<span class='badge badge-danger'>04.26.2025 12:24:44 am</span>
-<span class='badge badge-default'>00:00:10:972</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=81</span>
+<span class='badge badge-success'>04.27.2025 2:13:36 pm</span>
+<span class='badge badge-danger'>04.27.2025 2:13:47 pm</span>
+<span class='badge badge-default'>00:00:10:872</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=88</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -658,14 +619,14 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="82"><span class="badge log pass-bg mr-2">Pass</span>Validate the positive scenario of user registration</div>
+        <div class="node" id="89"><span class="badge log pass-bg mr-2">Pass</span>Validate the positive scenario of user registration</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="83"><span class="badge log pass-bg mr-2">Pass</span>Validate the positive scenario of user registration</div>
+                  <div class="node" id="90"><span class="badge log pass-bg mr-2">Pass</span>Validate the positive scenario of user registration</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -695,7 +656,7 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And User enters the DOB as "09/09/1999"</span>
+                    <span>And User enters the DOB as "11-12-2015"</span>
       <div>
       </div>
                   </div>
@@ -750,82 +711,30 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view exception-view attributes-view">
-<div class="test-list">
-<div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
-</div>
-<div class="test-list-wrapper scrollable">
-<ul class="test-list-item">
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">org.openqa.selenium.NoSuchElementException</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>org.openqa.selenium.NoSuchElementException</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>00:23:42 am</td>
-<td>
-<a href="#" class="linked" test-id='1' id='20'>When User verifies the welcome label</a>
-<div class="">
-<span class="badge badge-default">Validate the Account details functionality.Validate the withdrawl functionality of account details.When User verifies the welcome label</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="test-content scrollable">
-<div class="test-content-detail">
-<div class="detail-body"></div>
-</div>
-</div>
-</div><div class="container-fluid p-4 view dashboard-view">
+<div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Apr 26, 2025 12:22:47 am</h3>
+<h3>Apr 27, 2025 02:11:40 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Apr 26, 2025 12:24:44 am</h3>
+<h3>Apr 27, 2025 02:13:47 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>4</h3>
+<h3>5</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -841,12 +750,12 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='80%'>
-<b>4</b> features passed
+<div><small data-tooltip='100%'>
+<b>5</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='20%'><b>1</b> features failed,
+<small data-tooltip='0%'><b>0</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -864,9 +773,9 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='87%'><b>7</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>8</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='12%'><b>1</b> scenarios failed,
+<small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -884,10 +793,10 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='91%'><b>64</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>70</b> steps passed</small></div>
 <div>
-<small data-tooltip='1%'><b>1</b> steps failed,
-<b>5</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='0%'><b>0</b> steps failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -903,7 +812,7 @@ Session ID: f30c0a5d55b03e63598876194eb662c2
 </div></div>
 <script>
 var timeline = {
-"Validate the Account details functionality":52.814,"Validate the functionality of Contact Us":11.113,"Validate the Forgot password functionality":10.021,"Validate the login functionalty of application":28.013,"Validate the sign up functionatlity of application":10.972
+"Validate the Account details functionality":59.771,"Validate the functionality of Contact Us":12.14,"Validate the Forgot password functionality":12.634,"Validate the login functionalty of application":26.503,"Validate the sign up functionatlity of application":10.872
 };
 </script>
 <div class="row">
@@ -912,21 +821,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 4,
-failParent: 1,
+passParent: 5,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 7,
-failChild: 1,
+passChild: 8,
+failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 64,
-failGrandChild: 1,
+passGrandChild: 70,
+failGrandChild: 0,
 warningGrandChild: 0,
-skipGrandChild: 5,
+skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 };

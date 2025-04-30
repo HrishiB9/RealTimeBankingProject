@@ -17,4 +17,4 @@ Feature: Validate the sign up functionatlity of application
     
     Examples:
       | FirstName | LastName | PhoneNumber | DOB        | City | Username | Password |
-      | Ram       | Mahajan  |  9876543210 | 09/09/1999 | Pune | Ram      |    12345 |
+      | Ram       | Mahajan  |  9876543210 | 11 12 2015 | Pune | Ram      |    12345 |

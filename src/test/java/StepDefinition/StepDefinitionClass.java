@@ -18,34 +18,24 @@ import io.cucumber.java.en.When;
 
 
 public class StepDefinitionClass extends BaseClass
-{
-	
-	/*@Before
-	public void setup()
-	{
+{	
+	 SignUpPage page =new SignUpPage(driver);
+     LoginPage login = new LoginPage(driver);
+     ForgetPage forgot = new ForgetPage(driver);
+     ContactsUsPage contact = new ContactsUsPage(driver);
+     AccountDetailsPage account = new AccountDetailsPage(driver);
 		
-	}*/
-	
-	WebDriver driver = BaseClass.initializeDriver();
-	SignUpPage page = new SignUpPage(driver);
-	LoginPage login = new LoginPage(driver);
-	ForgetPage forgot = new ForgetPage(driver);
-	ContactsUsPage contact = new ContactsUsPage(driver);
-	AccountDetailsPage account = new AccountDetailsPage(driver);
-	
-	 
+	//Sign up page 
 	@Given("User launch the application")
 	public void user_launch_the_application()
 	{
-		System.out.println("Application Launch successfully");
-		
+		System.out.println("Application Launch successfully");		
 	}
 
 	@When("User click on the sign up button")
 	public void user_click_on_the_sign_up_button() 
 	{
-		page.registration();
-		
+		page.registration();		
 	}
 
 	@And("User enters the First name as {string}") 
@@ -68,14 +58,15 @@ public class StepDefinitionClass extends BaseClass
 
 	@And("User enters the DOB as {string}")
 	public void user_enters_the_dob_as(String DOB)
-	{
-		addImplicitWait();
+	{	
+		
 		page.dateOfBirth(DOB);
 	}
 
 	@And("User selects the gender")
 	public void user_selects_the_gender()
 	{
+		
 		page.genderSelection("Male");
 	}
 
@@ -115,17 +106,13 @@ public class StepDefinitionClass extends BaseClass
 	}
 
 	
-// ****** End of signup functionality ****** //
-	
-	//***** Login Functionality ***** //
-	
-	
-	
+	// Login page 
 		
 	@And("Click on the Login Button")
 	public void click_on_the_login_button()
 	{
 	   login.logLink();
+	   
 	}
 	
 	@When("User enters the login Username as {string}")
@@ -147,29 +134,27 @@ public class StepDefinitionClass extends BaseClass
 	@Then("Validate that user is getting success message after login successfully")
 	public void validate_that_user_is_getting_success_message_after_login_successfully() 
 	{
-	   login.msg();
+	  
+	   String success = login.msg();
+	   Assert.assertEquals(success, "Thank you! Your data has been submitted.");
+	   
 	}
 	
 	@Then("Verify that the title of the page")
 	public void verify_that_the_title_of_the_page() 
 	{
-	  getTitle();
+	   
+	  Assert.assertEquals(getTitle(), "Log In");
 	}
 	
 	@Then("Validate that user is getting error message")
 	public void validate_that_user_is_getting_error_message() 
 	{
 	   String error = login.errMsg();
-	   Assert.assertEquals(error, "None of the fields are filled in");
-	   
+	   Assert.assertEquals(error, "None of the fields are filled in");	   
 	}
-
-
-//*******End of login functionality *******//
 	
-	//Forgot Password functionality
-	
-	
+	// Forgot Password functionality	
 	@When("User clicks on the  Forget Password menu")
 	public void user_clicks_on_the_forget_password_menu() 
 	{
@@ -206,7 +191,7 @@ public class StepDefinitionClass extends BaseClass
 	  getTitle();
 	}
 
-//*****Contact us page functionality*******
+//Contact us page 
 	
 	@When("User clicks on the Contact US link")
 	public void user_clicks_on_the_contact_us_link()
@@ -255,15 +240,12 @@ public class StepDefinitionClass extends BaseClass
 	}
 
 
-	//********* Account details page functionality*******
-	
+	//Account details page 	
 	@Given("User clicks on the Account details link")
 	public void user_clicks_on_the_account_details_link() 
-	{
-		
+	{		
 		account.accountpage();
-		getWindowHandle();
-		
+		getWindowHandle();		
 	}
 
 	@Given("User selects the name from dropdown")
@@ -306,15 +288,13 @@ public class StepDefinitionClass extends BaseClass
 	@When("User enters the deposit amount in the amount field {string}")
 	public void user_enters_the_deposit_amount_in_the_amount_field(String depositAmount) {
 		
-		System.out.println(depositAmount);
 	    try {
 			account.dAmount(depositAmount);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    System.out.println(depositAmount);
-	    
+	    System.out.println(depositAmount);	    
 	}
 
 	@When("User clicks on the Deposit button")
@@ -322,7 +302,7 @@ public class StepDefinitionClass extends BaseClass
 	    account.depositButton();
 	}
 	
-	@When("Validate the correct balance")
+	@When("Validate the total account balance")
 	public void validate_the_correct_balance() {
 		String total = account.totalAmt();
 	    System.out.println("Total Account balance:" +total);
@@ -344,9 +324,11 @@ public class StepDefinitionClass extends BaseClass
 	    account.withdrawBtn();
 	}	
 	
-	@After
-	public void tearDown()
+	@And("User validate the remaining balance")
+	public void User_validate_the_remaining_balance()
 	{
-		driver.quit();
+		//String output = total - withdrawlAmount;
+		String remBalance = account.totalAmt();
+		System.out.println("Remaining Balance: "+remBalance);
 	}
 }

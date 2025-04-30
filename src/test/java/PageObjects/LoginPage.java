@@ -6,7 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage 
+import Utilities.BaseClass;
+
+public class LoginPage extends BaseClass
 {
 	WebDriver driver; 
 	
@@ -56,9 +58,10 @@ public class LoginPage
 		logBtn.click();
 	}
 	
-	public void msg()
+	public String msg()
 	{
-		successMessage.getText();
+		 hardCodedWait(7000);
+		return successMessage.getText();
 	}
 	
 	public String errMsg()
